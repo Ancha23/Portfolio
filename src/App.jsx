@@ -7,7 +7,7 @@ import { AllRoutes } from './routes';
 export const App = () => {
   return (
     <Router>
-      <div className='bg-black/90 min-h-screen'>
+      <div className='bg-black min-h-screen'>
         <AllRoutes />
       </div>
     </Router>

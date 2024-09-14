@@ -2,7 +2,7 @@
 
 export const Footer = () => {
     return (
-      <footer className="bg-black/50 text-neutral-content p-4">
+      <footer className="bg-gray-900 text-neutral-content p-4 text-white">
         <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:justify-between">
           <aside className="flex items-center space-x-4">
             <svg

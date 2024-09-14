@@ -1,52 +1,107 @@
 import React from 'react';
 import { Header } from '../componnts/header/header';
-import { WhatsappLogo, FacebookLogo,GithubLogo, LinkedinLogo } from '@phosphor-icons/react';
+import { Footer } from '../componnts/footer/footer';
+import { motion } from 'framer-motion';
 
 export const Home = () => {
+
     return (
         <>
             <Header />
-            <div className="flex flex-col lg:flex-row items-center mt-8 ml-4 lg:-ml-6 justify-center w-full">
-                {/* Celular */}
-              <div className="relative flex items-center justify-center w-full lg:w-72 h-[500px] bg-black border-2 border-black/70 rounded-3xl shadow-lg mb-4 lg:mb-0">
-                    {/* Tela do celular */}
-           <div className="absolute inset-0 m-4 bg-black/80 border-2 border-black rounded-xl flex items-center justify-center">
-              <div className=" items-center justify-center w-full h-full bg-black border-2 rounded-xl">
-                 
-                <img src="/img/fotoPerfil.jpeg" alt="" 
-                 style={{
-                    borderRadius: '50%', // Faz a imagem circular
-                    width: '150px', // Define a largura da imagem
-                    height: '150px', // Define a altura da imagem
-                    objectFit: 'cover', // Garante que a imagem não seja distorcida
-                    border: '2px solid #ddd', // Adiciona uma borda opcional
-                  }}
-                  className='mt-8 flex ml-12'
-                />
-                <div className='text-green-300 ml-4 mt-16'>
-                <WhatsappLogo size={30} className='mb-4'/>
-                <FacebookLogo size={30} className='mb-4'/>
-                <GithubLogo size={30} className='mb-4'/>
-                <LinkedinLogo size={30}/>
-                </div>
-                </div>
-                    </div>
-                    
-                    {/* Câmera do celular */}
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-gray-800 rounded-full w-6 h-6"></div>
-                </div>
+            <div
+  style={{
+    position: 'relative', // Define a posição relativa para que os elementos internos possam ser posicionados em relação a este contêiner
+    height: '100vh', // Ajuste a altura conforme necessário
+    overflow: 'hidden', // Garante que nada saia dos limites do contêiner
+  }}
+>
+  {/* Elemento para a imagem de fundo */}
+  <div
+    style={{
+      position: 'absolute', // Faz com que a imagem de fundo cubra todo o contêiner
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url(/img/foto1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      opacity: '0.4', // Aplica opacidade apenas à imagem de fundo
+    }}
+  />
+  
+  {/* Conteúdo sobre a imagem */}
+  <div
+    style={{
+      position: 'relative',
+      color: 'white', // Cor do texto
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center', // Centraliza o texto
+      height: '100%', // Faz com que o conteúdo ocupe toda a altura do contêiner
+    }}
+  >
+<h1 className='text-white text-6xl font-bold -mt-36'>
+        { "ANCHA CATARINA".split('').map((letter, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: index * 0.09,
+              duration: 0.5,
+              ease: 'easeOut',
+            }}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </h1>    
+      <h2 className='text-white text-3xl mt-10'>Software Developer</h2>
+      <p className=' mt-10'
+      style={{ color: '#70e000',
+        opacity:'0.7'
+       }}
+      >
+        { "Sou uma Programadora Júnior com uma formação sólida em Telecomunicações e uma paixão por tecnologia e design.\nMinha jornada na programação começou com o desejo de criar soluções tecnológicas inovadoras e eficazes, e desde\nentão, tenho me dedicado a aprimorar minhas habilidades em várias áreas da tecnologia.".split('').map((letter, index) => (
+          letter === '\n' ? <br key={index} /> : (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: index * 0.05 + 2, // Adiciona um atraso adicional para sincronizar com o h1
+                duration: 0.05,
+                ease: 'easeOut',
+              }}
+            >
+              {letter}
+            </motion.span>
+          )
+        ))}</p>  
+        
+        <a href="/about">
+    <motion.button
+      whileHover={{ scale: 1.1 }} // Aumenta a escala do botão quando o mouse passa sobre ele
+      animate={{ 
+        scale: [1, 1.1, 1] // A animação de pulsação: volta ao tamanho original após aumentar
+      }}
+      transition={{
+        duration: 1, // Duração total da animação
+        ease: 'easeInOut', // Tipo de suavização da animação
+        repeat: Infinity, // Repete a animação infinitamente
+        repeatType: 'loop' // Faz com que a animação seja contínua
+      }}
+      className='bg-[#004b23] px-6 py-3 rounded mt-8'
+    >
+      Toque aqui para me conhecer melhor
+    </motion.button>  
+    </a>
+    </div>
+</div>
 
-                {/* Informações */}
-                <div className="text-center lg:text-left lg:ml-24 mt-6">
-                    <h1 className='text-white text-6xl font-bold mb-2'>ANCHA CATARINA</h1>
-                    <h2 className='text-white  text-3xl mt-2'>Software Developer</h2>
-                    <p className=' text-green-400 mt-10'>Sou uma Programadora Júnior com uma formação sólida em Telecomunicações e uma paixão por tecnologia e design. </p>
-                    <p className=' text-green-400'>Minha jornada na programação começou com o desejo de criar soluções tecnológicas inovadoras e eficazes, e desde</p>
-                     <p className=' text-green-400'>então, tenho me dedicado a aprimorar minhas habilidades em várias áreas da tecnologia.</p>
-                
-                <button className='bg-green-300 mt-10 ml-48'>Toque aqui me conhecer melhor</button>
-                </div>
-            </div>
+
+            <Footer/>
         </>
     );
 };

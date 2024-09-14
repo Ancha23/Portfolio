@@ -1,3 +1,5 @@
+
+
 export const Navbar = () => {
     return (
       <div className="navbar bg-base-100 bg-black/50 px-4 py-2">
